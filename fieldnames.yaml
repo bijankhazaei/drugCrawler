@@ -1,0 +1,13 @@
+xpath:
+  general_name: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[1]/div[2]/bdo'
+  certificate_owner: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[1]/span'
+  brand_owner: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[2]/span'
+  consumer_price: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[1]/span[1]'
+  unit_price: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[2]/span[1]'
+  irc: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[6]/div[2]/span'
+  gtin: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[6]/div[1]/span'
+  emergency_licence: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[7]/div[2]/span'
+  license_expire_date: '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[4]/div[2]/span'
+extra:
+  id: ''
+  response_code: ''

@@ -1,6 +1,10 @@
+import os
 import requests
 import csv
 import time
+import yaml
+from dotenv import load_dotenv
+from pathlib import Path
 from bs4 import BeautifulSoup
 from lxml import etree
 from tqdm import tqdm
@@ -10,6 +14,21 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'
 }
 
+
+# load yaml file for fieldnames and xpath selector
+def check_files():
+    if os.path.exists('fieldnames.yaml'):
+        with open('fieldnames.yaml', 'r') as file:
+            fieldnames_dict: dict = yaml.safe_load(file)
+            print(fieldnames_dict.keys())
+            # if xpath is existing as key in fieldnames_dict
+            if 'xpath' in fieldnames_dict.keys():
+                xpath_keys = fieldnames_dict.get('xpath')
+                print(xpath_keys)
+        return fieldnames_dict
+
+check_files()
+exit(100)
 
 def check_index():
     with open('index.txt', 'r') as txt_file:
@@ -50,19 +69,14 @@ def fetch_data_from_url(url_id):
         result = {
             'id': url_id,
             'general_name': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[1]/div[2]/bdo'),
-            'certificate_owner': data_object(dom,
-                                             '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[1]/span'),
+            'certificate_owner': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[1]/span'),
             'brand_owner': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[2]/span'),
-            'consumer_price': data_object(dom,
-                                          '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[1]/span[1]'),
-            'unit_price': data_object(dom,
-                                      '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[2]/span[1]'),
+            'consumer_price': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[1]/span[1]'),
+            'unit_price': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[2]/span[1]'),
             'irc': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[6]/div[2]/span'),
             'gtin': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[6]/div[1]/span'),
-            'emergency_licence': data_object(dom,
-                                             '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[7]/div[2]/span'),
-            'license_expire_date': data_object(dom,
-                                               '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[4]/div[2]/span'),
+            'emergency_licence': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[7]/div[2]/span'),
+            'license_expire_date': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[4]/div[2]/span'),
             'response_code': response.status_code
         }
 

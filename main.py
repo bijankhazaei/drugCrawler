@@ -50,19 +50,14 @@ def fetch_data_from_url(url_id):
         result = {
             'id': url_id,
             'general_name': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[1]/div[2]/bdo'),
-            'certificate_owner': data_object(dom,
-                                             '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[1]/span'),
+            'certificate_owner': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[1]/span'),
             'brand_owner': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[3]/div[2]/span'),
-            'consumer_price': data_object(dom,
-                                          '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[1]/span[1]'),
-            'unit_price': data_object(dom,
-                                      '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[2]/span[1]'),
+            'consumer_price': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[1]/span[1]'),
+            'unit_price': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[5]/div[2]/span[1]'),
             'irc': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[6]/div[2]/span'),
             'gtin': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[6]/div[1]/span'),
-            'emergency_licence': data_object(dom,
-                                             '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[7]/div[2]/span'),
-            'license_expire_date': data_object(dom,
-                                               '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[4]/div[2]/span'),
+            'emergency_licence': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[7]/div[2]/span'),
+            'license_expire_date': data_object(dom, '/html/body/div[1]/div[5]/div[1]/div[1]/div/div/div[3]/div[4]/div[2]/span'),
             'response_code': response.status_code
         }
 
